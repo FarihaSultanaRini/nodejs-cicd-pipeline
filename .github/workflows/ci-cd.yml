@@ -21,12 +21,11 @@ jobs:
         run: npm install
 
       - name: Run tests and capture results
-        shell: pwsh
-       
+        shell: powershell
         run: |
-          mkdir -p test-results
-          npm run check > test-results/test-output.txt 2>&1 
-          echo "Tests completed"
+          mkdir  test-results
+          npm run check *>&1 | Out-File -FilePath test-results/test-output.txt -Encoding utf8
+          Write-Output "Tests completed"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
