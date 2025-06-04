@@ -33,7 +33,7 @@ jobs:
 
   deploy:
     needs: test
-    runs-on: [self-hosted]
+    runs-on: [self-hosted, Windows, X64]
 
     steps:
       - name: Download test results
