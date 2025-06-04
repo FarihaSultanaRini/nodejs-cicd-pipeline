@@ -52,12 +52,7 @@ jobs:
       - name: Basic deployment test
         run: |
           echo "=== Deployment Test ==="
-          echo "Current directory: $(pwd)"
-          echo "Files present:"
-          ls -la
-          echo "Node version: $(node --version)"
-          echo "NPM version: $(npm --version)"
-          
+        
       - name: Install and test start
         run: |
           npm install
