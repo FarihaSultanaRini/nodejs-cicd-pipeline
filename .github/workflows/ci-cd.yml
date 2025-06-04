@@ -21,10 +21,12 @@ jobs:
         run: npm install
 
       - name: Run tests and capture results
-        shell: bash 
+        shell: pwsh
+       
         run: |
           mkdir -p test-results
-          npm run check > test-results/test-output.txt 2>&1 || echo "Tests completed"
+          npm run check > test-results/test-output.txt 2>&1 
+          echo "Tests completed"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
