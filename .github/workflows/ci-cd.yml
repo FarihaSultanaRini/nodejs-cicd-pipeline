@@ -52,6 +52,7 @@ jobs:
         run: cat ./test-results/test-output.txt
 
       - name: Deploy Node.js application
+        shell: powershell
         run: |
           npm install
           npm start &
