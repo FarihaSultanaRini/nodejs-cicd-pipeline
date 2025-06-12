@@ -58,7 +58,7 @@ pm2 save
   - `/api` → Returns a JSON response
 
 - **Default Port:** `3000`
-![alt text](OSTAD-Assignment-module-3/image.png)
+![alt text](image.png)
 
 ---
 
