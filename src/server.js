@@ -32,7 +32,7 @@ let server;
 if (require.main === module) {
   // If the file is run directly, start the server
   const PORT = process.env.PORT || 3000;
-  server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  server = app.listen(PORT, '127.0.0.1',() => console.log(`Server running on port http://127.0.0.1:${PORT}`));
 }
 
 module.exports = app
