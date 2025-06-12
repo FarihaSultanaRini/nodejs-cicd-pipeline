@@ -2,7 +2,7 @@
 ## 🚀 Prerequisites
 
 - ✅ **Node.js Version**: 18 or later (tested with v18 & v22)
-- ✅ **npm** (comes with Node.js)
+- ✅ **npm** (for  Node.js)
 - ✅ **PM2** for process management
 
 ---
