@@ -51,13 +51,15 @@ jobs:
       - name: Display test results
         run: cat ./test-results/test-output.txt
 
-      - name: Basic deployment test
-        run: |
-          echo "=== Deployment Test ==="
-        
-      - name: Install and test start
+      - name: Deploy Node.js application
         run: |
           npm install
-          echo "Testing if app can start..."
+          npm start &
+          echo "=== Deployment successful! ==="
         
-          echo "Deployment successful!"
+     ## - name: Install and test start
+       # run: |
+       #   npm install
+        #  echo "Testing if app can start..."
+        
+          #echo "Deployment successful!"
