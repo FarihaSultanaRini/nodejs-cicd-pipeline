@@ -58,6 +58,7 @@ pm2 save
   - `/api` → Returns a JSON response
 
 - **Default Port:** `3000`
+![alt text](OSTAD-Assignment-module-3/image.png)
 
 ---
 
@@ -97,3 +98,5 @@ npm run check *>&1 | Out-File -FilePath test-results/test-output.txt -Encoding u
 
 **Solution:**  
 Used `try/catch` in PowerShell to prevent script failure on first deploy.
+
+
