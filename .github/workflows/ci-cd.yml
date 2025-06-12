@@ -1,4 +1,4 @@
-name: Node js delpy
+name: Simple Test
 
 on:
   push:
@@ -51,16 +51,18 @@ jobs:
       - name: Display test results
         run: cat ./test-results/test-output.txt
 
-      - name: Deploy Node.js application
+      - name: Basic deployment test
+        run: |
+          echo "=== Deployment Test ==="
+        
+      - name: Node js app deploy
         shell: powershell
         run: |
           npm install
-          npm start &
-          echo "=== Deployment successfull! ==="
-        
-     ## - name: Install and test start
-       # run: |
-       #   npm install
-        #  echo "Testing if app can start..."
+          pm2 stop my-node-app -s || Write-Output "No existing pm2 process"
+          pm2 start src/server.js --name my-node-app
+          pm2 save
+          Write-Output "=== Deployment successful! ==="
+          #echo "Testing if app can start..."
         
           #echo "Deployment successful!"
