@@ -1,4 +1,4 @@
-name: Simple Test
+name: Node js delpy
 
 on:
   push:
@@ -55,7 +55,7 @@ jobs:
         run: |
           npm install
           npm start &
-          echo "=== Deployment successful! ==="
+          echo "=== Deployment successfull! ==="
         
      ## - name: Install and test start
        # run: |
