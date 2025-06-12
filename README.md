@@ -40,7 +40,7 @@ pm2 delete node-app || true
 ### 2. Start the Application
 
 ```bash
-pm2 start "./src/server.js" --name node-app
+pm2 start "./src/server.js" --name my-node-app
 ```
 
 ### 3. Save PM2 Process List
@@ -58,6 +58,7 @@ pm2 save
   - `/api` → Returns a JSON response
 
 - **Default Port:** `3000`
+
 ![alt text](image.png)
 
 ---

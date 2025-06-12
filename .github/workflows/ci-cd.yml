@@ -59,10 +59,11 @@ jobs:
         shell: powershell
         run: |
           npm install
-          try {
-            pm2 stop my-node-app -s
-          } catch {
-            Write-Output "No existing pm2 process"
+          if (pm2 list | Select-String "my-node-app") {
+             pm2 stop my-node-app -s
+             pm2 delete my-node-app
+          } else {
+            Write-Output "No running process found for my-node-app"
           }
           pm2 start src/server.js --name my-node-app
           pm2 save
