@@ -59,10 +59,13 @@ jobs:
         shell: powershell
         run: |
           npm install
-          pm2 stop my-node-app -s || Write-Output "No existing pm2 process"
+          try {
+            pm2 stop my-node-app -s
+          } catch {
+            Write-Output "No existing pm2 process"
+          }
           pm2 start src/server.js --name my-node-app
           pm2 save
           Write-Output "=== Deployment successful! ==="
-          #echo "Testing if app can start..."
         
           #echo "Deployment successful!"
