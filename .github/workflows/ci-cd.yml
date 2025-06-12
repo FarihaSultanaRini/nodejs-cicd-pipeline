@@ -67,5 +67,21 @@ jobs:
           pm2 start src/server.js --name my-node-app
           pm2 save
           Write-Output "=== Deployment successful! ==="
+          Write-Output "Server running on http://127.0.0.1:3000"
         
           #echo "Deployment successful!"
+
+      - name: Copy pm2 logs to workspace
+        shell: powershell
+        run: |
+            $logDir = "$env:USERPROFILE\.pm2\logs"
+            $destDir = "$PWD/pm2-logs"
+            mkdir $destDir
+            Copy-Item "$logDir\my-node-app-out.log" $destDir -ErrorAction SilentlyContinue
+             Copy-Item "$logDir\my-node-app-error.log" $destDir -ErrorAction SilentlyContinue
+
+      - name: Upload pm2 logs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pm2-logs
+          path: pm2-logs/
